@@ -1,1 +1,58 @@
+// castelo animado, livre, fantasia
+// freira, 14, terror
+// avatar,12,ficção cientifica, fantasia
+// o menino de pijama listrado, 12, guerra
+// homem aranha atravez do aranhaverso, 10, ação
+
+
+let campoIdade
+
+function setup() {
+ createCanvas(800, 400);
+    createElement("h2", "Recomendador de filmes");
+  createSpan("Sua idade:");
+   campoIdade = createInput("12");
+  campoFantasia = createCheckbox("Gosta de Fantasia ?");
+  campoTerror = createCheckbox ("Gosta de Terror ?");
+}
+
+// codigo omitido
+
+function draw() {
+  background('white');
+  let idade = campoIdade.value();
+  let gostaDeFantasia = campoFantasia.checked();
+  let gostaDeTerror = campoTerror.checked();
+  let recomendacao = geraRecomendacao(idade, gostaDeFantasia, gostaDeTerror);
+   fill(color(225,0 , 50))
+  textAlign( CENTER, CENTER)
+  textSize(38);
+  text(recomendacao, width/2, height/2);
+}
+  
+function geraRecomendacao(idade, gostaDeFantasia, gostaDeTerror) {
+    if(idade >= 10) {
+        if(idade >= 14) {
+          if(gostaDeTerror){
+            return "Freira"
+          } else{
+            return "Homem Aranha atraves do aranhaverso";
+        }
+        }
+      else {
+            return "avatar";
+        }      
+    } else {
+      if(gostaDeFantasia){
+        
+        return "Castelo animado";
+      }
+      else{
+        return "o menino de pijama listrado"
+      }
+    }
+}
+
+
+
 
